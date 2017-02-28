@@ -1,21 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { observer, inject } from "mobx-react"
+import styles from './App.css';
 
+import CaptureRender from './CaptureRender.js'
+import DropFile from './DropFile.js'
+import ToggleButton from './ToggleButton.js'
+
+
+
+
+@inject('store') @observer
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+
+	constructor(p) {
+		super(p)
+		this.state = {isMobile:this.checkMQ(), showRender:false}
+	}
+
+	checkMQ() {
+		return !window.matchMedia( "(min-width: 700px)" ).matches;
+	}
+
+	onToggle(onoff) {
+		this.setState({showRender:onoff})
+	}
+
+	componentDidMount() {
+		window.onresize = ()=>{
+			this.setState({isMobile:this.checkMQ()})
+		}
+	}
+
+  	render() {
+	    return (
+			<div className={styles.main}>
+				<DropFile />
+				{
+					this.state.isMobile ? <ToggleButton onoff={this.state.showRender} onToggle={this.onToggle.bind(this)}/> : null
+				}
+				<CaptureRender showRender={this.state.showRender} isMobile={this.state.isMobile} />
+			</div>
+	    );
+  	}
 }
 
 export default App;
+
+
+// {
+// 						(this.state.isMobile) ? <button onClick={this.showRender.bind(this)}>Show Render</button> : null
+// 					}

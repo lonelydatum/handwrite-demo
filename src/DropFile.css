@@ -1,0 +1,25 @@
+.main {
+	border: 5px dashed rgba(0,0,0,.7);
+
+	height: 200px;
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgba(0,0,0,.7);
+	font-size: 55px;
+}
+
+
+.main.hover {
+	border: 10px dashed #FF0000;
+}
+
+
+.dropzone{
+	/*opacity: .1;*/
+}
+
+.gar{
+	color: green;
+}

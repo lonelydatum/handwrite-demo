@@ -1,0 +1,101 @@
+@value small from './breakpoints.css';
+@value color: black;
+
+.main {
+	composes: column from './CaptureRender.css';
+	composes: frontback from './CaptureRender.css';
+
+	background-color: #00ff00;
+	color: color;
+	border: 11px solid transparent;
+	font-family: 'VT323', monospace;
+
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	width:100%;
+}
+
+.holder {
+	composes: holder from './CaptureRender.css';
+	overflow: hidden;
+}
+
+.checker {
+	composes: absolutely from './CaptureRender.css';
+	z-index: 0;
+}
+
+.captureImage {
+	composes: absolutely from './CaptureRender.css';
+	z-index: 1;
+}
+
+.canvas {
+	composes: absolutely from './CaptureRender.css';
+	/*border: 1px solid red;*/
+	z-index: 10;
+}
+
+
+
+
+
+.brush {
+	width: 100%;
+	margin-top: 22px;
+}
+
+
+
+
+button {
+	border-color: color;
+	color: color;
+}
+
+.brushSize {
+	width: 100%;
+}
+
+
+.points {
+	margin-top: 22px;
+	width: 100%;
+}
+
+.totalPoint {
+	text-align: center;
+}
+
+
+
+.uiHolder {
+	composes: ui-holder from './CaptureRender.css';
+}
+
+
+.pointsTextArea {
+	width: 100%;
+	border:none;
+	font-size: 15px;
+	background-color: #ecec09;
+	padding: 15px;
+	font-family: 'VT323', monospace;
+}
+
+
+
+
+
+
+
+
+
+
+@media small {
+  .main {
+
+  }
+
+}

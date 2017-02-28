@@ -1,13 +1,18 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
 
+import { Provider } from "mobx-react"
 import Handwrite from 'handwrite'
+import store from './Store.js'
 
-console.log(Handwrite);
+
+
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+	<Provider store={store}>
+  		<App/>
+  	</Provider>,
+  	document.getElementById('root')
 );

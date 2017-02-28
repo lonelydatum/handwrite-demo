@@ -1,0 +1,61 @@
+@value small from './breakpoints.css';
+@value color: #c2c305;
+
+.main{
+	composes: column from './CaptureRender.css';
+	composes: frontback from './CaptureRender.css';
+	background-color: white;
+	color: color;
+	border: 11px solid #c2c305;
+
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+
+	transform: rotateY(180deg);
+}
+
+.holder {
+	composes: holder from './CaptureRender.css';
+}
+
+.renderImage {
+	composes: absolutely from './CaptureRender.css';
+	opacity: 0;
+}
+
+.button {
+	color: color;
+	border-color: color;
+}
+
+.canvas {
+	composes: absolutely from './CaptureRender.css';
+	border: 1px solid color;
+}
+
+.uiWrapper {
+	/*background-color: pink;*/
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+}
+
+.uiHolder {
+
+}
+
+
+@media small {
+  .main {
+    position: relative;
+	width: inherit;
+    height: inherit;
+
+    transform: initial;
+  }
+
+}

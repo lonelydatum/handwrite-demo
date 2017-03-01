@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import styles from './Capture.css'
 import { observer, inject } from "mobx-react"
 import _ from 'lodash'
+import Slider from './ui/Slider.js'
 
 import CapturePoints from './helpers/CapturePoints.js'
 
@@ -24,11 +25,6 @@ class Capture extends React.Component {
 	componentDidMount() {
 		const {brush, image} = this.props.store
 
-
-
-
-
-
 		// undo from key: ctr+z
 		document.onkeydown = (e) => {
 			var evtobj = window.event? event : e
@@ -37,16 +33,10 @@ class Capture extends React.Component {
 			}
 		}
 
-
-
-
 		setTimeout(()=>{
 			this.props.getHeight(this.refs.main.offsetHeight)
 		}, 100)
-
-
 	}
-
 
 
 	componentDidUpdate(prevProps, prevState) {
@@ -63,15 +53,8 @@ class Capture extends React.Component {
 		this.capturePoints.startOver()
 	}
 
-
-
-
   	render() {
   		const {brush, image, points} = this.props.store
-
-  		if(this.refs.main) {
-
-  		}
 
 		return (
 	  		<div ref="main" className={styles.main}>
@@ -88,28 +71,25 @@ class Capture extends React.Component {
 					</canvas>
 				</div>
 
-				<div className={styles.brush}>
-					<div>Brush size: <span>{brush}</span></div>
-					<input type="range" className={styles.brushSize} onChange={this.sliderChanged.bind(this)} value={brush} min="1" max="10" />
-				</div>
+				<Slider
+					min={1}
+					max={10}
+					storeProp='brush'>Brush Size:</Slider>
 
 				<div className={styles.points}>
 					<span>looooooongArray.length = </span><span className={styles.totalPoint}>
 						{points.length}
 					</span>
-					<textarea rows="20" readOnly value={JSON.stringify(points)} className={styles.pointsTextArea}></textarea>
+					<textarea rows="10" readOnly value={JSON.stringify(points)} className={styles.pointsTextArea}></textarea>
 				</div>
 
 				<div className={styles.uiHolder}>
 					<button onClick={this.undid.bind(this)} ref="undo">Undo (ctr+z)</button>
 					<button onClick={this.startOver.bind(this)} ref="startOver">Start Over</button>
-
-
 				</div>
 	  		</div>
 		);
   	}
-
 }
 
 

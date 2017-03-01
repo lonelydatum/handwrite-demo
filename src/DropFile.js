@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
 import styles from './DropFile.css'
 import { observer, inject } from "mobx-react"
-
+import HandwriteReact from './HandwriteReact.js'
 var Dropzone = require('react-dropzone');
+
+import points from './helpers/points.js'
+
 
 
 @inject('store') @observer
@@ -42,7 +45,16 @@ class DropFile extends React.Component {
                 return "This file is not authorized";
               }
 
-              return "Drop An Image Here";
+              return (
+              <HandwriteReact
+            ref="handwriteReact"
+            image={'./text___drop-an-image-here.png'}
+            points={[]}
+            speed={1}
+            brushSize={6}
+            repeat={10}
+          />)
+
             }}
           </Dropzone>
 	  		</div>

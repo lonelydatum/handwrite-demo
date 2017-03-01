@@ -1,7 +1,7 @@
 .main {
 	border: 5px dashed rgba(0,0,0,.7);
 
-	height: 200px;
+	height: 120px;
 	margin: 20px auto;
 	display: flex;
 	justify-content: center;

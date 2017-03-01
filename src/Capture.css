@@ -13,7 +13,7 @@
 	z-index: 2;
 	/* for firefox 31 */
 	transform: rotateY(0deg);
-	width:100%;
+
 }
 
 .holder {
@@ -41,10 +41,7 @@
 
 
 
-.brush {
-	width: 100%;
-	margin-top: 22px;
-}
+
 
 
 
@@ -52,6 +49,12 @@
 button {
 	border-color: color;
 	color: color;
+}
+
+
+.brush {
+	width: 100%;
+	margin-top: 22px;
 }
 
 .brushSize {

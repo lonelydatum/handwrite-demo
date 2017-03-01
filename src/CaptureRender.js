@@ -16,17 +16,15 @@ class CaptureRender extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		console.log(this.state.showRender);
+		// console.log(this.state.showRender);
 	}
 
 
 
   	render() {
-
   		const deg = this.props.showRender ? 180 : 0
   		const height = this.props.isMobile ? this.state.height : 'initial'
   		const css = {height, transform: `rotateY(${deg}deg)`}
-  		console.log(css);
 		return (
 			<div className={styles.flipcontainer}>
 		  		<div className={styles.main} style={css}>

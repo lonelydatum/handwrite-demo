@@ -2,8 +2,8 @@ import { observable, toJS, action, computed } from "mobx"
 
 class Store {
 	@observable __image = localStorage.getItem('image')
-	@observable __brush = localStorage.getItem('brush') || 2
-	@observable speed = 1
+	@observable __brush = parseInt(localStorage.getItem('brush'), 10) || 2
+	@observable __speed = parseInt(localStorage.getItem('speed'), 10) || 5
 	@observable undoList = []
 
 
@@ -13,6 +13,8 @@ class Store {
 			const p = JSON.parse(localStorage.getItem('points'))
 			this.addUndoItem(p)
 		}
+
+
 	}
 
 	@action starOver() {
@@ -33,9 +35,7 @@ class Store {
 			pList = pList.concat(item.toJS())
 		})
 
-
 		localStorage.setItem('points', JSON.stringify(pList))
-
 		return pList
 	}
 
@@ -57,6 +57,15 @@ class Store {
 
 	get brush() {
 		return this.__brush
+	}
+
+	set speed(value) {
+		this.__speed = value
+		localStorage.setItem('speed', value)
+	}
+
+	get speed() {
+		return this.__speed
 	}
 
 	// set point(value) {

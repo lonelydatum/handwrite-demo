@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import { Provider } from "mobx-react"
-import Handwrite from 'handwrite'
+
 import store from './Store.js'
 
 

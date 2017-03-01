@@ -48,6 +48,23 @@
 
 }
 
+.brush {
+	width: 100%;
+	margin-top: 22px;
+}
+
+.brushSize {
+	width: 100%;
+}
+
+.code {
+	width: 100%;
+	font-size: 14px;
+	background-color: #111;
+	margin-top: 50px;
+	padding: 10px;
+	min-height: 180px;
+}
 
 @media small {
   .main {

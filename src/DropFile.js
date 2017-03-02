@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import styles from './DropFile.css'
 import { observer, inject } from "mobx-react"
 import HandwriteReact from './HandwriteReact.js'
@@ -6,7 +6,14 @@ var Dropzone = require('react-dropzone');
 
 import points from './helpers/points.js'
 
+import TweenLite from 'gsap'
+// import ScrollToPlugin from "gsap/ScrollToPlugin";
 
+
+
+// console.log(TweenMax);
+
+// import {TweenMax, Power2, TimelineLite} from "gsap";
 
 @inject('store') @observer
 class DropFile extends React.Component {
@@ -25,6 +32,10 @@ class DropFile extends React.Component {
 
 
       reader.readAsDataURL(file);
+
+
+
+
     }
 
 
@@ -35,6 +46,7 @@ class DropFile extends React.Component {
 	  			ref="main"
 	  			className={styles.main}
 	  		>
+
 	  			<Dropzone onDrop={this.onDropHandler.bind(this)} className={styles.dropzone} activeClassName={styles.gar}>
             {({ isDragActive, isDragReject }) => {
               if (isDragActive) {
@@ -46,14 +58,20 @@ class DropFile extends React.Component {
               }
 
               return (
-              <HandwriteReact
-            ref="handwriteReact"
-            image={'./text___drop-an-image-here.png'}
-            points={[]}
-            speed={1}
-            brushSize={6}
-            repeat={10}
-          />)
+                <div className={styles.stateOut}>
+                  <HandwriteReact
+                    ref="handwriteReact"
+                    image={'./text___drop-an-image-here.png'}
+                    points={points}
+                    speed={1}
+                    brushSize={6}
+                    repeat={5}
+                  />
+                  <p className={styles.pictures}>
+                    <i className="fa fa-picture-o" aria-hidden="true"></i>
+                  </p>
+                </div>
+              )
 
             }}
           </Dropzone>
@@ -64,10 +82,6 @@ class DropFile extends React.Component {
 }
 
 
-
-DropFile.propTypes = {
-
-};
 
 
 export default DropFile;

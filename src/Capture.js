@@ -87,6 +87,7 @@ class Capture extends React.Component {
 					<button onClick={this.undid.bind(this)} ref="undo">Undo (ctr+z)</button>
 					<button onClick={this.startOver.bind(this)} ref="startOver">Start Over</button>
 				</div>
+
 	  		</div>
 		);
   	}

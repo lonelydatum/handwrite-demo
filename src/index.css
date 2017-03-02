@@ -52,8 +52,9 @@ html {
 
 body {
 	background-color: white;
-	font-family: 'Amatic SC', cursive;
-	padding-bottom: 100px;
+	/*font-family: 'Amatic SC', cursive;*/
+	font-family: 'Share Tech Mono', monospace;
+
 }
 
 button {

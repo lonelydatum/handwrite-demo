@@ -36,8 +36,16 @@ class HandwriteReact extends React.Component {
 
 	draw() {
 		const {speed, brushSize, repeat} = this.props
-		// console.log({speed, brushSize, repeat});
-		this.handwrite.draw(this.props.points, {speed, brushSize, repeat, callback:this.callback.bind(this)})
+
+		const options = {
+			speed,
+			brushSize,
+			repeat,
+			callback:this.callback.bind(this),
+			cleanFromBehind:true
+		}
+
+		this.handwrite.draw(this.props.points, options)
 	}
 
 	callback() {

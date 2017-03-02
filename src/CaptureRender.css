@@ -2,6 +2,12 @@
 
 .flipcontainer {
 	perspective: 1000px;
+	background-color: blue;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 }
 .flipcontainer:hover .main {
 	/*transform: rotateY(180deg);*/
@@ -10,13 +16,16 @@
 .main {
 	display: block;
 	position: relative;
-	margin: 50px auto 0;
+	/*padding-top: 50px;*/
 	color: white;
 	font-size: 20px;
 	box-shadow: 0px 0px 20px #888888;
 
 	transition: .5s;
 	transform-style: preserve-3d;
+	/*min-height: 100vh;*/
+	width: 100%;
+
 
 }
 
@@ -35,6 +44,7 @@ h3 {
 
 
 .column {
+	justify-content: flex-start;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -65,7 +75,25 @@ h3 {
 }
 
 
+.cover {
+	background-color: rgba(0,0,0,.85);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index: 11;
+	transition: 1s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
+}
+
+.cover i {
+	font-size: 255px;
+	color: #555;
+}
 
 @media small {
   	.main {

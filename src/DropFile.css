@@ -1,8 +1,13 @@
+@value size: 600px;
+
 .main {
 	border: 5px dashed rgba(0,0,0,.7);
-
-	height: 120px;
-	margin: 20px auto;
+	width: size;
+	height: size;
+	border-radius: size;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 80px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -20,6 +25,14 @@
 	/*opacity: .1;*/
 }
 
-.gar{
-	color: green;
+.pictures{
+	margin-top: 20px;
+	font-size: 100px;
+	text-align: center;
+}
+
+.stateOut{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }

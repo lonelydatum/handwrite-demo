@@ -5,10 +5,11 @@
 	composes: column from './CaptureRender.css';
 	composes: frontback from './CaptureRender.css';
 
-	background-color: #00ff00;
+	background-color: white;
 	color: color;
-	border: 11px solid transparent;
-	font-family: 'VT323', monospace;
+	/*border: 11px solid white;*/
+	border-right: 11px solid black;
+	/*font-family: 'VT323', monospace;*/
 
 	z-index: 2;
 	/* for firefox 31 */

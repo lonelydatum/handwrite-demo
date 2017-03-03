@@ -7,8 +7,9 @@ import DropFile from './DropFile.js'
 import ToggleButton from './ToggleButton.js'
 import About from './About.js'
 
-import ScrollToPlugin from "gsap/ScrollToPlugin";
+
 import TweenLite from 'gsap'
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 
 @inject('store') @observer
@@ -33,30 +34,30 @@ class App extends Component {
 		window.onresize = ()=>{
 			this.setState({isMobile:this.checkMQ()})
 		}
-		this.hasImage()
+		this.hasImage(this.props.store.image)
 	}
 
-	hasImage() {
-		if(this.props.store.image){
-			const dom = document.getElementById('captureRender')
-			console.log(dom.offsetTop);
-			TweenLite.to(window, 1, {scrollTo: dom.offsetTop})
+	hasImage(image) {
+		const dom = this.refs.captureRender
+
+		if( dom ){
+			let y = image ? dom.offsetTop : 0
+			TweenLite.to(window, 1, {scrollTo:y , delay:.5})
 		}
 	}
 
   	render() {
 
-
-
-
+  		this.hasImage(this.props.store.image)
 	    return (
 			<div className={styles.main}>
 				<div className={styles.page1}>
 					<About />
 					<DropFile />
 				</div>
-
-				<CaptureRender ref="captureRender" showRender={this.state.showRender} isMobile={this.state.isMobile} />
+				<div ref="captureRender">
+					<CaptureRender showRender={this.state.showRender} isMobile={this.state.isMobile} />
+				</div>
 			</div>
 	    );
   	}

@@ -2,11 +2,12 @@
 
 .flipcontainer {
 	perspective: 1000px;
-	background-color: blue;
+	background-color: #F3F0D8;
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-family: 'Diplomata SC', cursive;
 
 }
 .flipcontainer:hover .main {
@@ -38,8 +39,9 @@
 
 
 h3 {
-	font-size: 30px;
+	font-size: 22px;
 	line-height: 40px;
+	font-weight: 100;
 }
 
 
@@ -87,7 +89,20 @@ h3 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: .5s;
+	overflow: hidden;
+}
 
+.coverShowCapture {
+	composes: cover;
+	width: 50%;
+	left: 50%;
+}
+
+.coverShowAll {
+	composes: cover;
+	width: 0%;
+	left: 50%;
 }
 
 .cover i {

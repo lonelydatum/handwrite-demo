@@ -7,9 +7,13 @@ import Handwrite from 'handwrite'
 
 class HandwriteReact extends React.Component {
 
+	constructor(p) {
+		super(p)
+		this.state = {image: null}
+	}
 
 	componentDidMount() {
-
+		// console.log(this.);
 	}
 
 	imageLoaded() {
@@ -20,6 +24,7 @@ class HandwriteReact extends React.Component {
 		this.refs.canvas.height = this.refs.img.height
 
 		this.handwrite = new Handwrite(this.refs.canvas, this.refs.img)
+		console.log(this);
 		if(this.props.points){
 			this.draw()
 		}
@@ -42,15 +47,18 @@ class HandwriteReact extends React.Component {
 			brushSize,
 			repeat,
 			callback:this.callback.bind(this),
-			cleanFromBehind:true
+			cleanFromBehind:false
 		}
 
+
+		// console.log(options);
 		this.handwrite.draw(this.props.points, options)
 	}
 
 	callback() {
-		this.handwrite.onDone()
-		this.handwrite.render()
+		console.log(this);
+		// this.handwrite.onDone()
+		// this.handwrite.render()
 	}
 
   	render() {

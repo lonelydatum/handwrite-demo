@@ -1,13 +1,13 @@
 @value small from './breakpoints.css';
-@value color: #c2c305;
+@value color: #2f2f2f;
 
 .main{
 	composes: column from './CaptureRender.css';
 	composes: frontback from './CaptureRender.css';
-	background-color: white;
+	background-color: #658052;
 	color: color;
 	/*border: 11px solid white;*/
-	border-left: 11px solid black;
+	border-left: 11px solid #354629;
 
 	position: absolute;
     top: 0;

@@ -79,7 +79,7 @@ const handwrite.draw(looooooongArray, {brushsize:5, speed:3, repeat:0, callback}
 
 
 				<Slider min={1} max={10} storeProp='brush'>Brush Size:</Slider>
-				<Slider min={1} max={30} storeProp='speed' onCallback={this.onSpeed.bind(this)}>Speed:</Slider>
+				<Slider min={1} max={20} storeProp='speed' onCallback={this.onSpeed.bind(this)}>Speed:</Slider>
 
 				<div className={styles.code}>
 					<pre>

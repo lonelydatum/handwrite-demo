@@ -39,6 +39,11 @@ class DropFile extends React.Component {
     }
 
 
+    componentDidMount() {
+      const dom = this.refs
+      console.log(dom);
+    }
+
   	render() {
 
 		return (
@@ -47,10 +52,10 @@ class DropFile extends React.Component {
 	  			className={styles.main}
 	  		>
 
-	  			<Dropzone onDrop={this.onDropHandler.bind(this)} className={styles.dropzone} activeClassName={styles.gar}>
+	  			<Dropzone onDrop={this.onDropHandler.bind(this)} className={styles.dropzone} activeClassName={styles.active}>
             {({ isDragActive, isDragReject }) => {
               if (isDragActive) {
-                return "This file is authorized";
+                return "Drop the image here and you're good to go.";
               }
 
               if (isDragReject) {
@@ -58,14 +63,14 @@ class DropFile extends React.Component {
               }
 
               return (
-                <div className={styles.stateOut}>
+ <div className={styles.stateOut}>
                   <HandwriteReact
                     ref="handwriteReact"
                     image={'./text___drop-an-image-here.png'}
                     points={points}
                     speed={1}
                     brushSize={6}
-                    repeat={5}
+                    repeat={0}
                   />
                   <p className={styles.pictures}>
                     <i className="fa fa-picture-o" aria-hidden="true"></i>
@@ -86,37 +91,3 @@ class DropFile extends React.Component {
 
 export default DropFile;
 
-// import Signals from 'signals'
-
-// class DragFile {
-// 	constructor(dom) {
-// 		this.signals = {
-// 			imageReady: new Signals()
-// 		}
-// 		var holder = dom
-// 		holder.ondragleave = function () { this.className = ''; return false; };
-// 		holder.ondragover = function () { this.className = 'hover'; return false; };
-// 		holder.ondragend = function () { this.className = ''; return false; };
-// 		holder.ondrop = this.onDrop.bind(holder, this)
-// 	}
-
-// 	onDrop(scope, e) {
-// 		this.className = '';
-// 		e.preventDefault();
-
-// 		var file = e.dataTransfer.files[0]
-// 		const reader = new FileReader();
-// 		reader.onload = (event) => {
-// 			scope.signals.imageReady.dispatch(event.target.result)
-// 		};
-
-
-// 		reader.readAsDataURL(file);
-// 		return false;
-
-// 	}
-
-
-// }
-
-// export default DragFile

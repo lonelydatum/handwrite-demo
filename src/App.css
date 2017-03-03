@@ -10,13 +10,17 @@
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 .page1 {
 	height: 100vh;
 	padding-top: 30px;
-	background-color: grey;
-	/*color: white;*/
+	background-color: #A3DACE;
+	color: #F79688;
+  color: #F3F4DD;
+  color: black;
+
 }
 
 

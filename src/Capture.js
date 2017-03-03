@@ -80,7 +80,7 @@ class Capture extends React.Component {
 					<span>looooooongArray.length = </span><span className={styles.totalPoint}>
 						{points.length}
 					</span>
-					<textarea rows="10" readOnly value={JSON.stringify(points)} className={styles.pointsTextArea}></textarea>
+					<textarea rows="3" readOnly value={JSON.stringify(points)} className={styles.pointsTextArea}></textarea>
 				</div>
 
 				<div className={styles.uiHolder}>

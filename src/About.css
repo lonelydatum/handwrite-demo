@@ -1,13 +1,25 @@
 .main {
 
 	text-align: center;
+	font-family: 'Fredericka the Great', cursive;
+
 }
 
 h1 {
-	font-size: 50px;
+	font-size: 55px;
+	font-weight: 100;
+	margin-top: 11px;
 }
 
-p {
-	font-size: 25px;
-	margin-top: 15px;
+.handHolder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80px;
+}
+
+
+.hand {
+	margin-top: 13px;
+	margin-left: 22px;
 }

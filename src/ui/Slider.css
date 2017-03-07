@@ -6,3 +6,12 @@
 .brushSize {
 	width: 100%;
 }
+
+.label {
+	display: flex;
+	justify-content: space-between;
+}
+
+.labelRange {
+	font-size: 70%;
+}

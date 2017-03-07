@@ -3,23 +3,24 @@
 
 .main {
 	composes: column from './CaptureRender.css';
-	composes: frontback from './CaptureRender.css';
-
-	background-color: #F79688;
+	/*composes: frontback from './CaptureRender.css';*/
+	background-color: #f9b0a5;
 	color: color;
-	/*border: 11px solid white;*/
 	border-right: 11px solid #af695f;
-	/*font-family: 'VT323', monospace;*/
-
 	z-index: 2;
-	/* for firefox 31 */
-	transform: rotateY(0deg);
-
+	/*transform: rotateY(0deg);*/
 }
 
 .holder {
 	composes: holder from './CaptureRender.css';
 	overflow: hidden;
+
+
+
+	-webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .checker {
@@ -36,13 +37,18 @@
 	composes: absolutely from './CaptureRender.css';
 	/*border: 1px solid red;*/
 	z-index: 10;
+
 }
 
 
 
+.title {
+	composes: title from './CaptureRender.css';
+}
 
-
-
+.content {
+	composes: content from './CaptureRender.css';
+}
 
 
 
@@ -64,7 +70,7 @@ button {
 
 
 .points {
-	margin-top: 22px;
+	margin-top: 30px;
 	width: 100%;
 }
 
@@ -76,16 +82,19 @@ button {
 
 .uiHolder {
 	composes: ui-holder from './CaptureRender.css';
+	/*height: 100%;*/
+	/*align-items: flex-end;*/
 }
 
 
 .pointsTextArea {
 	width: 100%;
 	border:none;
-	font-size: 15px;
-	background-color: #e68d80;
+	font-size: 12px;
+	line-height: 18px;
+	background-color: #f7bcb3;
 	padding: 15px;
-	font-family: 'VT323', monospace;
+	margin-top: 9px;
 }
 
 

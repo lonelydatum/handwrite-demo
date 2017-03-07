@@ -58,36 +58,43 @@ class Capture extends React.Component {
 
 		return (
 	  		<div ref="main" className={styles.main}>
-	  			<h3>Do some chicken scratches below:</h3>
+	  			<div className={styles.content}>
+		  			<h3 className={styles.title}>Start by tracing over the image you selected.</h3>
 
-				<div className={styles.holder} style={{...this.state.imageSize}}>
-					<img className={styles.checker} src="./checker.png" />
-					<img ref="img" className={styles.captureImage} onLoad={this.imageLoaded.bind(this)} src={this.props.store.image} />
-					<canvas
-						className={styles.canvas}
-						ref="canvas"
-						width={this.state.imageSize.width}
-						height={this.state.imageSize.height}>
-					</canvas>
+					<div className={styles.holder} style={{...this.state.imageSize}}>
+						<img className={styles.checker} src="./checker.png" />
+						<img ref="img" className={styles.captureImage} onLoad={this.imageLoaded.bind(this)} src={this.props.store.image} />
+						<canvas
+							className={styles.canvas}
+							ref="canvas"
+							width={this.state.imageSize.width}
+							height={this.state.imageSize.height}>
+						</canvas>
+					</div>
+
+
+
+					<Slider
+						min={{value:1, label:'small brush(1)'}}
+						max={{value:10, label:'big brush(10)'}}
+						storeProp='brush'></Slider>
+
+					<div className={styles.uiHolder}>
+						<button onClick={this.undid.bind(this)} ref="undo">Undo (ctr+z)</button>
+						<button onClick={this.startOver.bind(this)} ref="startOver">Start Over</button>
+					</div>
+
+
+
+					<div className={styles.points}>
+						<span>looooooongArray.length = </span><span className={styles.totalPoint}>
+							{points.length}
+						</span>
+						<textarea rows="9" readOnly value={JSON.stringify(points)} className={styles.pointsTextArea}></textarea>
+					</div>
+
+
 				</div>
-
-				<Slider
-					min={1}
-					max={10}
-					storeProp='brush'>Brush Size:</Slider>
-
-				<div className={styles.points}>
-					<span>looooooongArray.length = </span><span className={styles.totalPoint}>
-						{points.length}
-					</span>
-					<textarea rows="3" readOnly value={JSON.stringify(points)} className={styles.pointsTextArea}></textarea>
-				</div>
-
-				<div className={styles.uiHolder}>
-					<button onClick={this.undid.bind(this)} ref="undo">Undo (ctr+z)</button>
-					<button onClick={this.startOver.bind(this)} ref="startOver">Start Over</button>
-				</div>
-
 	  		</div>
 		);
   	}

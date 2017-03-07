@@ -1,8 +1,11 @@
-.main {
+@value small from './breakpoints.css';
 
+.main {
 	text-align: center;
 	font-family: 'Fredericka the Great', cursive;
-
+	transform: scale(.67);
+	margin-top: -50px;
+	pointer-events: none;
 }
 
 h1 {
@@ -13,13 +16,32 @@ h1 {
 
 .handHolder {
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	justify-content: center;
-	height: 80px;
+	/*height: 80px;*/
+	/*border: 1px solid red;*/
+	flex-wrap: wrap;
+	margin-top: 0px;
+}
+
+.effect, .like {
+	padding-right: 20px;
 }
 
 
+
+
 .hand {
-	margin-top: 13px;
-	margin-left: 22px;
+	margin-top: 6px;
+	margin-left: 10px;
+	position: relative;
+	top:-4px;
+}
+
+
+@media small {
+	.main {
+		transform: scale(1);
+		margin-top: 0px;
+	}
 }

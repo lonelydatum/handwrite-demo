@@ -8,19 +8,16 @@
 .main {
   min-width: 100%;
   width: 100%;
-  padding: 0 15px;
+  padding: 0;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
 }
 
 .page1 {
-	height: 100vh;
-	padding-top: 30px;
+	min-height: 100vh;
+	padding: 30px 20px 50px 20px;
 	background-color: #A3DACE;
-	color: #F79688;
-  color: #F3F4DD;
   color: black;
-
 }
 
 
@@ -29,5 +26,9 @@
     /*min-width: 700px;*/
     max-width: 1900px;
     padding: 0;
+  }
+
+  .page1 {
+    height: 100vh;
   }
 }

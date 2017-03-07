@@ -17,14 +17,9 @@ class HandwriteReact extends React.Component {
 	}
 
 	imageLoaded() {
-
-
-
 		this.refs.canvas.width = this.refs.img.width
 		this.refs.canvas.height = this.refs.img.height
-
 		this.handwrite = new Handwrite(this.refs.canvas, this.refs.img)
-		console.log(this);
 		if(this.props.points){
 			this.draw()
 		}
@@ -40,23 +35,21 @@ class HandwriteReact extends React.Component {
 	}
 
 	draw() {
-		const {speed, brushSize, repeat} = this.props
-
+		const {speed, brushSize, repeat, cleanFromBehind, cleanUpWhenDone} = this.props
 		const options = {
 			speed,
 			brushSize,
 			repeat,
+			cleanUpWhenDone,
 			callback:this.callback.bind(this),
-			cleanFromBehind:false
+			cleanFromBehind:cleanFromBehind
 		}
 
-
-		// console.log(options);
 		this.handwrite.draw(this.props.points, options)
 	}
 
 	callback() {
-		console.log(this);
+		// console.log(this);
 		// this.handwrite.onDone()
 		// this.handwrite.render()
 	}
@@ -88,6 +81,7 @@ HandwriteReact.propTypes = {
 };
 
 HandwriteReact.defaultProps = {
+	cleanFromBehind: false,
 	repeat: 1,
 	brushSize: 5,
 	speed:5

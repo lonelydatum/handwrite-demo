@@ -8,4 +8,8 @@ function Circle(ctx, x, y, r=8, color='#ff0000') {
 	ctx.fill();
 }
 
-export {Circle}
+function checkMQ() {
+	return !window.matchMedia( "(min-width: 700px)" ).matches;
+}
+
+export {Circle, checkMQ}

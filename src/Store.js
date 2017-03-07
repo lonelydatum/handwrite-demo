@@ -6,13 +6,19 @@ class Store {
 	@observable __speed = parseInt(localStorage.getItem('speed'), 10) || 5
 	@observable undoList = []
 
-
+	@observable __cleanFromBehind = localStorage.getItem('cleanFromBehind') ? JSON.parse(localStorage.getItem('cleanFromBehind')) : true
+	@observable __cleanUpWhenDone = localStorage.getItem('cleanUpWhenDone') ? JSON.parse(localStorage.getItem('cleanUpWhenDone')) : true
+	@observable __isMobile = !window.matchMedia( "(min-width: 700px)" ).matches;
 
 	constructor() {
+		// console.log(JSON.parse(localStorage.getItem('cleanFromBehind')) );
 		if(localStorage.getItem('points')) {
 			const p = JSON.parse(localStorage.getItem('points'))
 			this.addUndoItem(p)
 		}
+
+		window.onresize = this.onresize.bind(this)
+
 
 
 	}
@@ -27,6 +33,21 @@ class Store {
 
 	@action removeUndoItem(undoItem) {
 		this.undoList.splice(-1, 1)
+	}
+
+	@action toggleCleanFromBehind() {
+		this.cleanFromBehind = !this.cleanFromBehind
+	}
+
+	@action togglecleanUpWhenDone() {
+		this.cleanUpWhenDone = !this.cleanUpWhenDone
+	}
+
+	@action onresize() {
+		// this.isMobile = true
+		this.isMobile =  !window.matchMedia( "(min-width: 700px)" ).matches;
+
+		// this.setState({isMobile:true})
 	}
 
 	@computed get points() {
@@ -49,6 +70,14 @@ class Store {
 		return this.__image
 	}
 
+	set isMobile(boo) {
+		this.__isMobile = boo
+	}
+
+	get isMobile() {
+		return this.__isMobile
+	}
+
 
 	set brush(value) {
 		this.__brush = value
@@ -66,6 +95,26 @@ class Store {
 
 	get speed() {
 		return this.__speed
+	}
+
+	get cleanFromBehind() {
+		return this.__cleanFromBehind
+	}
+
+	set cleanFromBehind(value) {
+		this.__cleanFromBehind = value
+		localStorage.setItem('cleanFromBehind', JSON.stringify(value))
+	}
+
+
+
+	get cleanUpWhenDone() {
+		return this.__cleanUpWhenDone
+	}
+
+	set cleanUpWhenDone(value) {
+		this.__cleanUpWhenDone = value
+		localStorage.setItem('cleanUpWhenDone', JSON.stringify(value))
 	}
 
 	// set point(value) {

@@ -41,7 +41,6 @@ class DropFile extends React.Component {
 
     componentDidMount() {
       const dom = this.refs
-      console.log(dom);
     }
 
   	render() {
@@ -63,17 +62,13 @@ class DropFile extends React.Component {
               }
 
               return (
- <div className={styles.stateOut}>
-                  <HandwriteReact
-                    ref="handwriteReact"
-                    image={'./text___drop-an-image-here.png'}
-                    points={points}
-                    speed={1}
-                    brushSize={6}
-                    repeat={0}
-                  />
+                <div className={styles.stateOut}>
+                  <h1>Drop an image here.</h1>
                   <p className={styles.pictures}>
                     <i className="fa fa-picture-o" aria-hidden="true"></i>
+                  </p>
+                  <p className={styles.reco}>
+                    I recommend a transparent png with just text.
                   </p>
                 </div>
               )

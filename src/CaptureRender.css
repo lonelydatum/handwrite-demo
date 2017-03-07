@@ -1,33 +1,28 @@
 @value small from './breakpoints.css';
 
 .flipcontainer {
-	perspective: 1000px;
+	/*perspective: 1000px;*/
 	background-color: #F3F0D8;
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Diplomata SC', cursive;
+
 
 }
-.flipcontainer:hover .main {
-	/*transform: rotateY(180deg);*/
-}
+/*.flipcontainer:hover .main {
+	transform: rotateY(180deg);
+}*/
 
 .main {
 	display: block;
 	position: relative;
-	/*padding-top: 50px;*/
 	color: white;
 	font-size: 20px;
 	box-shadow: 0px 0px 20px #888888;
-
 	transition: .5s;
-	transform-style: preserve-3d;
-	/*min-height: 100vh;*/
 	width: 100%;
-
-
+	font-family: 'Arvo', serif;
 }
 
 .holder {
@@ -38,11 +33,7 @@
 }
 
 
-h3 {
-	font-size: 22px;
-	line-height: 40px;
-	font-weight: 100;
-}
+
 
 
 .column {
@@ -60,6 +51,23 @@ h3 {
 .ui-holder {
 	display: flex;
 	margin-top: 20px;
+	justify-content: space-between;
+}
+
+.ui-holder button {
+	/*flex:1 1 90%;*/
+	flex-basis: calc(50% - 10px);
+
+}
+
+.ui-holder button:hover {
+	background-color: #f4a99f;
+}
+
+
+.ui-holder button:focus {
+	outline: 0;
+	/*border: none;*/
 }
 
 .absolutely {
@@ -73,7 +81,6 @@ h3 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	/*opacity: .2;*/
 }
 
 
@@ -91,12 +98,13 @@ h3 {
 	align-items: center;
 	transition: .5s;
 	overflow: hidden;
+	/*display: none;*/
 }
 
 .coverShowCapture {
 	composes: cover;
-	width: 50%;
-	left: 50%;
+	width: 100%;
+	left: 0%;
 }
 
 .coverShowAll {
@@ -108,6 +116,18 @@ h3 {
 .cover i {
 	font-size: 255px;
 	color: #555;
+}
+
+.title {
+	color: black;
+	font-size: 39px;
+	line-height: 45px;
+	font-weight: 100;
+	font-family: 'Fredericka the Great', cursive;
+}
+
+.content {
+	max-width: 600px;
 }
 
 @media small {
@@ -131,7 +151,12 @@ h3 {
 		position: relative;
 		top: 0;
 		left: 0;
-		/*opacity: .2;*/
+	}
+
+	.coverShowCapture {
+		composes: cover;
+		width: 50%;
+		left: 50%;
 	}
 
 }

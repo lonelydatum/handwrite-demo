@@ -14,6 +14,7 @@ class Capture {
 		this.canvas.addEventListener('mousemove', this.onMove.bind(this), false )
 		this.canvas.addEventListener('mousedown', this.onDown.bind(this), false )
 		this.canvas.addEventListener('mouseup', this.onUp.bind(this), false )
+		this.canvas.addEventListener('mouseout', this.onOut.bind(this), false )
 
 		this.tl = new TimelineMax()
 		this.color = 'rgba(255, 0, 255, .2)'
@@ -35,6 +36,12 @@ class Capture {
 
 	undo(){
 		this.store.removeUndoItem()
+	}
+
+	onOut() {
+		this.isDown = false
+		this.store.addUndoItem(this.currentItem)
+		this.currentItem = []
 	}
 
 

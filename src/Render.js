@@ -31,18 +31,27 @@ class Render extends React.Component {
 		// this.handwrite.draw(this.props.store.points, {brushSize: this.props.store.brush, fps:this.props.store.speed})
 	}
 
+	onCleanFromBehind() {
+		this.props.store.toggleCleanFromBehind()
+	}
+
+	onCleanUpWhenDone() {
+		this.props.store.togglecleanUpWhenDone()
+	}
+
 	onSpeed() {
 		// this.refs.handwriteReact.draw()
 	}
 
 	createMarkup() {
+		const {brush, image, points, speed, cleanFromBehind, cleanUpWhenDone} = this.props.store
 		const code =
 `npm install -S handwrite;
 
 import Handwrite from 'handwrite';
 
 const handwrite = new Handwrite(myCanvas, myImg);
-const handwrite.draw(looooooongArray, {brushsize:5, speed:3, repeat:0, callback});`
+const handwrite.draw(looooooongArray, {brushsize:${brush}, speed:${speed}, repeat:0, cleanFromBehind:${cleanFromBehind}, cleanUpWhenDone:${cleanUpWhenDone}, callback});`
 
 	const html = Prism.highlight(code, Prism.languages.javascript)
 
@@ -53,47 +62,67 @@ const handwrite.draw(looooooongArray, {brushsize:5, speed:3, repeat:0, callback}
 	}
 
   	render() {
-  		const {brush, image, points, speed} = this.props.store
-
-
-
-
-
+  		const {brush, image, points, speed, cleanFromBehind, cleanUpWhenDone} = this.props.store
 
 
 
 		return (
 	  		<div className={styles.main} >
-	  			<h3>Preview Masking effects using handwrite.js</h3>
+	  			<div className={styles.content}>
+		  			<h3 className={styles.title}>Preview Masking effects using handwrite.js</h3>
+		  			<div style={{marginTop:22}}>
+					<HandwriteReact
+		  				ref="handwriteReact"
+		  				image={image}
+		  				points={points}
+		  				speed={speed}
+		  				brushSize={brush}
+		  				cleanUpWhenDone={cleanUpWhenDone}
+		  				cleanFromBehind={cleanFromBehind}
+		  				repeat={0}
+		  			/>
+		  			</div>
 
 
+					<Slider
+						min={{value:1, label:'small brush(1)'}}
+						max={{value:10, label:'big brush(10)'}}
+						storeProp='brush'></Slider>
 
-				<HandwriteReact
-	  				ref="handwriteReact"
-	  				image={image}
-	  				points={points}
-	  				speed={speed}
-	  				brushSize={brush}
-	  				repeat={0}
-	  			/>
+					<Slider
+						min={{value:1, label:'fast(1)'}}
+						max={{value:10, label:'slow(20)'}}
+						storeProp='speed'></Slider>
 
 
-				<Slider min={1} max={10} storeProp='brush'>Brush Size:</Slider>
-				<Slider min={1} max={20} storeProp='speed' onCallback={this.onSpeed.bind(this)}>Speed:</Slider>
+					<div className={styles.cleanFromBehind}>
+						<label><input onChange={this.onCleanFromBehind.bind(this)} type="checkbox" name="cleanFromBehind" checked={cleanFromBehind} />cleanFromBehind</label>
+					</div>
 
-				<div className={styles.code}>
-					<pre>
-						<code
-							className="language-javascript"
-							dangerouslySetInnerHTML={this.createMarkup()}>
-						</code>
-					</pre>
-				</div>
-				<div className={styles.uiWrapper}>
-					<div className={styles.uiHolder}>
-						<button onClick={this.draw.bind(this)} className={styles.button}>PREVIEW ANIMATION</button>
+					<div className={styles.cleanFromBehind}>
+						<label><input onChange={this.onCleanUpWhenDone.bind(this)} type="checkbox" name="cleanUpWhenDone" checked={cleanUpWhenDone} />cleanUpWhenDone</label>
+					</div>
+
+					<div className={styles.uiWrapper}>
+						<div className={styles.uiHolder}>
+							<button onClick={this.draw.bind(this)} className={styles.button}>PREVIEW ANIMATION</button>
+						</div>
+					</div>
+
+
+					<div className={styles.code}>
+						<span className={styles.codeLabel}>
+						Simple set up:
+						</span>
+						<pre>
+							<code
+								className="language-javascript"
+								dangerouslySetInnerHTML={this.createMarkup()}>
+							</code>
+						</pre>
 					</div>
 				</div>
+
 
 	  		</div>
 		);

@@ -6,6 +6,7 @@ import CaptureRender from './CaptureRender.js'
 import DropFile from './DropFile.js'
 import ToggleButton from './ToggleButton.js'
 import About from './About.js'
+import {checkMQ} from './helpers/Helper.js'
 
 
 import TweenLite from 'gsap'
@@ -17,23 +18,22 @@ class App extends Component {
 
 	constructor(p) {
 		super(p)
-		this.state = {isMobile:this.checkMQ(), showRender:false}
+		this.state = {isMobile:checkMQ(), showRender:false}
+
 
 
 	}
 
-	checkMQ() {
-		return !window.matchMedia( "(min-width: 700px)" ).matches;
-	}
+
 
 	onToggle(onoff) {
 		this.setState({showRender:onoff})
 	}
 
 	componentDidMount() {
-		window.onresize = ()=>{
-			this.setState({isMobile:this.checkMQ()})
-		}
+		// window.onresize = ()=>{
+		// 	this.setState({isMobile:this.checkMQ()})
+		// }
 		this.hasImage(this.props.store.image)
 	}
 
@@ -47,7 +47,6 @@ class App extends Component {
 	}
 
   	render() {
-
   		this.hasImage(this.props.store.image)
 	    return (
 			<div className={styles.main}>

@@ -14,6 +14,8 @@ class CaptureRender extends React.Component {
 	}
 
 	getHeight(height) {
+
+
 		this.setState({height})
 	}
 
@@ -23,10 +25,14 @@ class CaptureRender extends React.Component {
 
 
   	render() {
+
+
+
+
   		const deg = this.props.showRender ? 180 : 0
   		const height = this.props.isMobile ? this.state.height : 'initial'
-  		const css = {height, transform: `rotateY(${deg}deg)`}
-  		const {image, points} = this.props.store
+  		const css = {transform: `rotateY(${deg}deg)`}
+  		const {image, points, isMobile} = this.props.store
 
   		let cover = image ? styles.coverShowCapture : styles.cover
 
@@ -40,15 +46,23 @@ class CaptureRender extends React.Component {
   			cover = styles.cover
   		}
 
+  		let coverSuper = {}
+  		if(isMobile) {
+  			console.log(this.state.height);
+  			coverSuper = {...coverSuper, top:this.state.height}
+  		}
+
+
+
 
 
 
 		return (
 			<div className={styles.flipcontainer} id="captureRender">
 		  		<div className={styles.main} style={css}>
-		  			<Capture getHeight={this.getHeight.bind(this)}/>
+		  			<Capture ref="capture" getHeight={this.getHeight.bind(this)}/>
 		  			<Render setHeight={this.state.height} />
-		  			<div className={cover}>
+		  			<div style={coverSuper} className={cover}>
 		  				<i className="fa fa-lock" aria-hidden="true"></i>
 		  			</div>
 		  		</div>

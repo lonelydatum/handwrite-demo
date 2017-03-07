@@ -23,8 +23,20 @@ class Slider extends React.Component {
   		const storeProp = this.props.store[this.props.storeProp]
 		return (
 	  		<div className={styles.main}>
-				<div>{this.props.children} <span>{storeProp}</span></div>
-				<input type="range" className={styles.brushSize} onChange={this.sliderChanged.bind(this)} value={storeProp} min={this.props.min} max={this.props.max} />
+				<div className={styles.label}>
+					<div className={styles.labelRange}>{this.props.min.label}</div>
+					<div>{this.props.children} <span>{storeProp}</span></div>
+					<div className={styles.labelRange}>{this.props.max.label}</div>
+
+				</div>
+				<input
+					type="range"
+					className={styles.brushSize}
+					onChange={this.sliderChanged.bind(this)}
+					value={storeProp}
+					min={this.props.min.value}
+					max={this.props.max.value}
+				/>
 			</div>
 		);
   	}
@@ -33,8 +45,8 @@ class Slider extends React.Component {
 
 
 Slider.propTypes = {
-	min: React.PropTypes.number.isRequired,
-	max: React.PropTypes.number.isRequired
+	min: React.PropTypes.object.isRequired,
+	max: React.PropTypes.object.isRequired
 };
 
 

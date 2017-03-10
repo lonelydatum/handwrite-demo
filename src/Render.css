@@ -7,7 +7,7 @@
 	background-color: #a2e0b8;
 	color: color;
 	/*border: 11px solid white;*/
-	border-left: 11px solid #354629;
+	/*border-left: 11px solid #354629;*/
 
 	/*position: absolute;*/
     top: 0;
@@ -21,6 +21,25 @@
 
 
 
+}
+
+.arrow {
+	width: 5px;
+	height: 100%;
+	background-color: #f9b0a5;
+	position: absolute;
+	top:0;
+	left:-5px;
+	box-shadow: 5px 0px 5px rgba(0,0,0,.15);
+
+
+/*
+	width: 0;
+  height: 0;
+  border-top: 300px solid transparent;
+  border-bottom: 300px solid transparent;
+
+  border-left: 50px solid #f9b0a5;*/
 }
 
 .holder {

@@ -6,7 +6,7 @@
 	/*composes: frontback from './CaptureRender.css';*/
 	background-color: #f9b0a5;
 	color: color;
-	border-right: 11px solid #af695f;
+	/*border-right: 11px solid #af695f;*/
 	z-index: 2;
 	/*transform: rotateY(0deg);*/
 }

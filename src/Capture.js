@@ -5,6 +5,7 @@ import _ from 'lodash'
 import Slider from './ui/Slider.js'
 
 import CapturePoints from './helpers/CapturePoints.js'
+import Anal from './ui/Anal.js'
 
 @inject('store') @observer
 class Capture extends React.Component {
@@ -46,10 +47,13 @@ class Capture extends React.Component {
 	}
 
 	undid() {
+
+		Anal('capture-undo')
 		this.capturePoints.undo()
 	}
 
 	startOver() {
+		Anal('capture-startover')
 		this.capturePoints.startOver()
 	}
 

@@ -1,5 +1,5 @@
 @value small from './breakpoints.css';
-@value size: 500px;
+@value size: 450px;
 
 .main {
 	border: 5px dashed #F3F4DD;
@@ -60,8 +60,8 @@
 	/*border: 1px solid red;*/
 	text-align: center;
 	margin-top: 10px;
-	font-size: 29px;
-	line-height: 34px;
+	font-size: 24px;
+	line-height: 31px;
 	padding: 0 50px;
 }
 
@@ -71,19 +71,19 @@
   	.main {
     	width: size;
 		height: size;
-		margin-top: 68px;
+		margin-top: 48px;
   	}
 
   	.stateOut h1 {
-		font-size: 61px;
+		font-size: 42px;
 		text-align: center;
-		line-height: 77px;
-		padding: 0 26px;
+		line-height: 58px;
+		padding: 0 51px;
 	}
 
 	.pictures{
 		margin-top: 20px;
-		font-size: 100px;
+		font-size: 78px;
 		text-align: center;
 	}
 }

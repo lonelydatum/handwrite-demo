@@ -1,0 +1,32 @@
+.main {
+	/*border: 1px solid red;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+}
+
+h3 {
+	font-size: 30px;
+	font-family: avo;
+	color: #cb0001;
+	font-weight: 300;
+}
+
+.images {
+	display: flex;
+	padding-top: 22px;
+
+}
+
+.imageItem {
+	border: 5px solid rgba(0,0,0,0);
+	box-shadow: 0 0px 20px rgba(0,0,0,.2);
+	border-radius: 222px;
+	margin: 0 22px;
+	transition: .5s;
+}
+
+.imageItem:hover {
+	border: 5px solid #cb0001;
+}

@@ -2,6 +2,8 @@ import {Circle} from './Helper'
 import {TimelineMax} from 'gsap'
 import {autorun} from 'mobx'
 
+const ga = window.ga
+
 class Capture {
 	constructor(canvas, store) {
 		this.store = store
@@ -17,7 +19,7 @@ class Capture {
 		this.canvas.addEventListener('mouseout', this.onOut.bind(this), false )
 
 		this.tl = new TimelineMax()
-		this.color = 'rgba(255, 0, 255, .2)'
+		this.color = 'rgba(0, 255, 0, .2)'
 		this.prev = {x:-1, y:-1}
 
 		this.currentItem = []
@@ -39,9 +41,13 @@ class Capture {
 	}
 
 	onOut() {
-		this.isDown = false
-		this.store.addUndoItem(this.currentItem)
-		this.currentItem = []
+		if(this.isDown) {
+			ga('send', 'event', 'handwrite', 'points-mouseout');
+			console.log(this.isDown);
+			this.isDown = false
+			this.store.addUndoItem(this.currentItem)
+			this.currentItem = []
+		}
 	}
 
 
@@ -54,9 +60,14 @@ class Capture {
 	}
 
 	onUp() {
-		this.isDown = false
-		this.store.addUndoItem(this.currentItem)
-		this.currentItem = []
+		ga('send', 'event', 'handwrite', 'points-mouseup');
+		if(this.isDown) {
+			console.log(this.isDown);
+			this.isDown = false
+			this.store.addUndoItem(this.currentItem)
+			this.currentItem = []
+		}
+
 	}
 
 

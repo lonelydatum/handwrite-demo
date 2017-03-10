@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styles from './Slider.css'
 import { observer, inject} from "mobx-react"
-
+import Anal from './Anal.js'
 
 @inject('store') @observer
 class Slider extends React.Component {
@@ -11,6 +11,7 @@ class Slider extends React.Component {
 
 		this.props.store[this.props.storeProp] = parseInt(e.target.value, 10)
 
+		Anal(`slider${this.props.min.label}`)
 
 		if(this.props.onCallback) {
 			this.props.onCallback()

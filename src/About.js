@@ -26,7 +26,7 @@ class About extends React.Component {
 		                    points={points}
 		                    speed={1}
 		                    brushSize={6}
-		                    repeat={9}
+		                    repeat={20}
 		                />
 		            </div>
                 </div>

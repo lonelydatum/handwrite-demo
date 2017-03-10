@@ -1,5 +1,8 @@
 import { observable, toJS, action, computed } from "mobx"
 
+import Anal from './ui/Anal.js'
+
+
 class Store {
 	@observable __image = localStorage.getItem('image')
 	@observable __brush = parseInt(localStorage.getItem('brush'), 10) || 2
@@ -62,6 +65,7 @@ class Store {
 
 
 	set image(base64) {
+		Anal('added image');
 		this.__image = base64
 		localStorage.setItem('image', base64)
 	}

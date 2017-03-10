@@ -6,6 +6,7 @@ import CaptureRender from './CaptureRender.js'
 import DropFile from './DropFile.js'
 import ToggleButton from './ToggleButton.js'
 import About from './About.js'
+import Demo from './Demo.js'
 import {checkMQ} from './helpers/Helper.js'
 
 
@@ -53,6 +54,7 @@ class App extends Component {
 				<div className={styles.page1}>
 					<About />
 					<DropFile />
+					<Demo />
 				</div>
 				<div ref="captureRender">
 					<CaptureRender showRender={this.state.showRender} isMobile={this.state.isMobile} />

@@ -5,11 +5,11 @@ import Anal from './ui/Anal.js'
 
 class Store {
 	@observable __image = localStorage.getItem('image')
-	@observable __brush = parseInt(localStorage.getItem('brush'), 10) || 2
+	@observable __brush = parseInt(localStorage.getItem('brush'), 10) || 6
 	@observable __speed = parseInt(localStorage.getItem('speed'), 10) || 5
 	@observable undoList = []
 
-	@observable __cleanFromBehind = localStorage.getItem('cleanFromBehind') ? JSON.parse(localStorage.getItem('cleanFromBehind')) : true
+	@observable __cleanFromBehind = localStorage.getItem('cleanFromBehind') ? JSON.parse(localStorage.getItem('cleanFromBehind')) : false
 	@observable __cleanUpWhenDone = localStorage.getItem('cleanUpWhenDone') ? JSON.parse(localStorage.getItem('cleanUpWhenDone')) : true
 	@observable __isMobile = !window.matchMedia( "(min-width: 700px)" ).matches;
 
@@ -32,10 +32,13 @@ class Store {
 
 	@action addUndoItem(undoItem) {
 		this.undoList.push(undoItem)
+
 	}
 
-	@action removeUndoItem(undoItem) {
+	@action removeUndoItem() {
+		console.log(this.undoList.toJS().length);
 		this.undoList.splice(-1, 1)
+
 	}
 
 	@action toggleCleanFromBehind() {
@@ -58,7 +61,7 @@ class Store {
 		this.undoList.forEach(item=>{
 			pList = pList.concat(item.toJS())
 		})
-
+		console.log(this.undoList.toJS());
 		localStorage.setItem('points', JSON.stringify(pList))
 		return pList
 	}

@@ -55,7 +55,7 @@ import Handwrite from 'handwrite';
 
 const myCanvas = document.getElementById('canvasID');
 const myImg = document.getElementById('imageID');
-const looooooongArray = [{x:0, y:0}] // To get these points use the tool from https://lonelydatum.github.io/handwrite
+const looooooongArray = [{x:0, y:0}];
 const options = {
 	brushsize:${brush},
 	speed:${speed},
@@ -82,10 +82,10 @@ const handwrite.draw(looooooongArray, options);`
 
 		return (
 	  		<div className={styles.main} >
-	  		<div className={styles.arrow}></div>
+
 	  			<div className={styles.content}>
 		  			<h3 className={styles.title}>Preview Masking effects using handwrite.js</h3>
-		  			<div style={{marginTop:22}}>
+		  			<div style={{marginTop:22}} className={styles.handwrite}>
 					<HandwriteReact
 		  				ref="handwriteReact"
 		  				image={image}

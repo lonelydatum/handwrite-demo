@@ -10,10 +10,10 @@ class Demo extends React.Component {
   	}
 
 	toDataUrl(img) {
-		console.log(img);
 		var canvas = document.createElement('CANVAS');
 		var ctx = canvas.getContext('2d');
 		var dataURL;
+
 		canvas.height = img.height;
 		canvas.width = img.width;
 		ctx.drawImage(img, 0, 0);

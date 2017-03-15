@@ -15,7 +15,7 @@
 
 .page1 {
 	min-height: 100vh;
-	padding: 30px 20px 50px 20px;
+	padding: 0px 20px 50px 20px;
 	background-color: #A3DACE;
   color: black;
 
@@ -33,6 +33,7 @@
   .page1 {
     /*height: 100vh;*/
     min-height: 800px;
+    padding: 30px 20px 50px 20px;
     padding-bottom: 155px;
   }
 }

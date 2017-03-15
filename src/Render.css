@@ -23,24 +23,6 @@
 
 }
 
-.arrow {
-	width: 5px;
-	height: 100%;
-	background-color: #f9b0a5;
-	position: absolute;
-	top:0;
-	left:-5px;
-	box-shadow: 5px 0px 5px rgba(0,0,0,.15);
-
-
-/*
-	width: 0;
-  height: 0;
-  border-top: 300px solid transparent;
-  border-bottom: 300px solid transparent;
-
-  border-left: 50px solid #f9b0a5;*/
-}
 
 .holder {
 	composes: holder from './CaptureRender.css';
@@ -81,12 +63,12 @@
 }
 
 .code {
-	width: 100%;
+	/*width: 100%;*/
 	font-size: 14px;
 	/*background-color: #111;*/
 	margin-top: 50px;
-	padding: 10px;
-	min-height: 180px;
+	/*padding: 10px;*/
+	/*min-height: 180px;*/
 	color: inherit;
 
 }
@@ -115,6 +97,11 @@
 	display: flex;
 	flex-direction: column;
 
+}
+
+.handwrite {
+	display: flex;
+	justify-content: center;
 }
 
 /*pre[class*="language-"] code{

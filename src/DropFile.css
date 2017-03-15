@@ -3,12 +3,12 @@
 
 .main {
 	border: 5px dashed #F3F4DD;
-	width: size;
-	height: size;
+	width: 350px;
+	height: 350px;
 	border-radius: size;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 60px;
+	margin-top: -10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

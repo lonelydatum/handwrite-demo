@@ -36,6 +36,8 @@ class App extends Component {
 		// 	this.setState({isMobile:this.checkMQ()})
 		// }
 		this.hasImage(this.props.store.image)
+
+
 	}
 
 	hasImage(image) {

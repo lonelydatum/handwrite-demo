@@ -36,7 +36,12 @@ class Capture extends React.Component {
 
 		setTimeout(()=>{
 			this.props.getHeight(this.refs.main.offsetHeight)
+
 		}, 100)
+
+
+
+
 	}
 
 
@@ -47,7 +52,6 @@ class Capture extends React.Component {
 	}
 
 	undid() {
-
 		Anal('capture-undo')
 		this.capturePoints.undo()
 	}

@@ -48,7 +48,6 @@ class CaptureRender extends React.Component {
 
   		let coverSuper = {}
   		if(isMobile) {
-  			console.log(this.state.height);
   			coverSuper = {...coverSuper, top:this.state.height}
   		}
 

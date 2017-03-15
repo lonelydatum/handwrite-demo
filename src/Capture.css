@@ -37,7 +37,13 @@
 	composes: absolutely from './CaptureRender.css';
 	/*border: 1px solid red;*/
 	z-index: 10;
-
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	/*position: relative;*/
 }
 
 
